@@ -11,6 +11,7 @@
 #include "CommandDistance.h"
 #include "CommandContain.h"
 #include "CommandInfo.h"
+#include "CommandDump.h"
 #include "CommandPaste.h"
 
 using namespace::std;
@@ -31,6 +32,7 @@ int main(int argc, const char ** argv)
     commandList.addCommand(new CommandInfo());
     commandList.addCommand(new CommandPaste());
     commandList.addCommand(new CommandBounds());
+    commandList.addCommand(new CommandDump());
     
     return commandList.run(argc, argv);
 }

@@ -1,0 +1,8 @@
+*.o
+Makefile
+autom4te.cache/
+config.log
+config.status
+configure
+libmash.a
+mash
