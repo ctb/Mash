@@ -8,6 +8,8 @@
 #include "Sketch.h"
 #include <iostream>
 
+#include <fstream>
+#include <sstream>
 using namespace::std;
 
 CommandInfo::CommandInfo()
@@ -123,6 +125,16 @@ int CommandInfo::run() const
 				columns[2].push_back(ref.name);
 				columns[3].push_back(ref.comment);
 			}
+
+
+            ofstream outfile("xxx", ios::out);
+            outfile << "murmur64," << seed << "," << sketch.getKmerSize()
+                    << "," << ref.name << ",";
+            for ( int i = 0 ; i < ref.hashesSorted.size(); i ++) {
+                outfile << ref.hashesSorted.at(i).hash64 << " ";
+            }
+            outfile << "\n";
+            outfile.close();
         }
         
         if ( ! tabular )
